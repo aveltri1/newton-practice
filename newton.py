@@ -1,5 +1,5 @@
 def optimize(x0, f, epsilon=0.001):
-     """
+    """
     Find an approximate optimum of a function using Newton's method.
 
     Parameters
@@ -16,21 +16,23 @@ def optimize(x0, f, epsilon=0.001):
     -------
     float
         Approximate x-value of the optimum.
-    """ 
+    """
+
     def f_prime(f, x0, epsilon):
         """
         Approximate the first derivative of a function using finite differences.
         """
-        deriv = (f(x0 + epsilon) - f(x0 - epsilon)) / epsilon
+        deriv = (f(x0 + epsilon) - f(x0 - epsilon)) / (2 * epsilon)
         return deriv
 
     def f_second(f, x0, epsilon):
         """
-        Approximate the first derivative of a function using finite differences.
+        Approximate the second derivative of a function using finite differences.
         """
         deriv2 = (
-            f_prime(f, x0 + epsilon, epsilon) - f_prime(f, x0 - epsilon, epsilon)
-        ) / epsilon
+            f_prime(f, x0 + epsilon, epsilon)
+            - f_prime(f, x0 - epsilon, epsilon)
+        ) / (2 * epsilon)
         return deriv2
 
     for i in range(100):
