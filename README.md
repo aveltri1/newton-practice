@@ -1,2 +1,2 @@
 # newton-practice
-Implementation of Newton's method 
+Thisrepository has a basic implementation of Newton’s method.
