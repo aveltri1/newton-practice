@@ -8,12 +8,12 @@ def multivariate_newton(F, x0, eps, max_iter = 100):
         grad = jacobian(F, x)
         H = hessian(F, x).ddf
         iter1 = np.linalg.solve(H, grad)
-        x_new = x + iter1
+        xnew = x + iter1
 
         if np.linalg.norm(iter1) < eps:
-            return x_new, i + 1
+            return xnew, i + 1
 
-        x = x_new
+        x = xnew
 
     return x, max_iter
 
