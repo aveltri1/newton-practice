@@ -5,7 +5,7 @@ from scipy.differentiate import hessian
 def multivariate_newton(F, x0, eps, max_iter = 100):
     x = np.asarray(x0)
     for i in range(max_iter):
-        grad = jacobian(F, x).df
+        grad = jacobian(F, x)
         H = hessian(F, x).ddf
         iter1 = np.linalg.solve(H, grad)
         x_new = x + iter1
